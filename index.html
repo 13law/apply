@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class=""><head><script>window.livecodes = window.livecodes || {};</script><title>apply</title><meta name="title" content="apply"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="./style.css"><script src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.js" async=""></script><script type="importmap">{
+  "imports": {}
+}</script></head><body><script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <button class="brand" data-nav="home" aria-label="Tea home"><span class="dot"></span>Tea</button>
+  <nav aria-label="Main">
+    <button class="link" data-nav="apply">Apply</button>
+    <button class="icon-btn" data-nav="admin" aria-label="Admin panel" title="Admin"><iconify-icon icon="tabler:lock"></iconify-icon></button>
+  </nav>
+</header>
+
+<main>
+  <!-- Home -->
+  <section id="home" class="view hero" data-view="">
+    <h1>Join the Tea Team</h1>
+    <p class="lead" <p="">Apply today to join the Tea Staff Team and help us keep the community in order.</p>
+    <button class="btn primary lg" data-nav="apply">Apply Now</button>
+    <ul class="features">
+      <li><iconify-icon icon="tabler:clipboard-list"></iconify-icon>2 Questions only</li>
+      <li><iconify-icon icon="tabler:shield-check"></iconify-icon>Every application reviewed</li>
+    </ul>
+  </section>
+
+  <!-- Apply -->
+  <section id="apply" class="view narrow" data-view="" hidden="">
+    <h2>Staff application</h2>
+    <p class="muted">It takes about two minutes.</p>
+    <form id="apply-form" class="card" novalidate="">
+      <label for="username">Discord Username</label>
+      <input id="username" maxlength="33" autocomplete="off" placeholder="teadrinker" required="">
+      <small class="err" id="username-err"></small>
+      <label for="reason">Why do you want to become a staff member?</label>
+      <textarea id="reason" rows="7" maxlength="2000" placeholder="Tell us about your motivation and any moderation experience." required=""></textarea>
+      <small class="err" id="reason-err"></small>
+      <button class="btn primary" type="submit"><iconify-icon icon="tabler:send"></iconify-icon><span>Submit Application</span></button>
+    </form>
+  </section>
+
+  <!-- Admin -->
+  <section id="admin" class="view" data-view="" hidden="">
+    <form id="login" class="card login">
+      <iconify-icon icon="tabler:lock" class="big"></iconify-icon>
+      <h2>Admin access</h2>
+      <label for="pw">Password</label>
+      <input id="pw" type="password" autocomplete="current-password" required="">
+      <button class="btn primary" type="submit"><iconify-icon icon="tabler:shield-check"></iconify-icon><span>Sign in</span></button>
+    </form>
+
+    <div id="dash" hidden="">
+      <div class="dash-head">
+        <h2><iconify-icon icon="tabler:layout-dashboard"></iconify-icon>Applications</h2>
+        <button class="btn" id="logout"><iconify-icon icon="tabler:logout"></iconify-icon>Sign out</button>
+      </div>
+      <div class="stats">
+        <div class="stat"><iconify-icon icon="tabler:clipboard-list"></iconify-icon><b id="s-total">0</b><span>Total</span></div>
+        <div class="stat"><iconify-icon icon="tabler:clock"></iconify-icon><b id="s-pending">0</b><span>Pending</span></div>
+        <div class="stat"><iconify-icon icon="tabler:check"></iconify-icon><b id="s-approved">0</b><span>Approved</span></div>
+        <div class="stat"><iconify-icon icon="tabler:x"></iconify-icon><b id="s-rejected">0</b><span>Rejected</span></div>
+      </div>
+      <div class="toolbar">
+        <label class="search"><iconify-icon icon="tabler:search"></iconify-icon><input id="q" type="search" placeholder="Search by Discord username" aria-label="Search by Discord username"></label>
+        <div class="seg" role="group" aria-label="Filter by status">
+          <button data-filter="all" class="on">All</button>
+          <button data-filter="pending">Pending</button>
+          <button data-filter="approved">Approved</button>
+          <button data-filter="rejected">Rejected</button>
+        </div>
+      </div>
+      <div id="list" class="list" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© <span id="year"></span> Border Roleplay Community. All Rights Reserved.</span>
+  <span>Tea is a subsidiary of Border Roleplay Community.</span>
+</footer>
+
+<dialog id="detail" aria-label="Application details"></dialog>
+<dialog id="confirm">
+  <form method="dialog">
+    <h3>Delete this application?</h3>
+    <p class="muted">It will be removed permanently. This can't be undone.</p>
+    <div class="row">
+      <button class="btn" value="cancel">Cancel</button>
+      <button class="btn danger" value="ok"><iconify-icon icon="tabler:trash"></iconify-icon>Delete</button>
+    </div>
+  </form>
+</dialog>
+<div id="toasts" role="status" aria-live="polite"></div><script src="./script.js" type="module"></script></body></html>
